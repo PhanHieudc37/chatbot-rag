@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 37 - Trợ lý thông minh</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- AI 37 Chatbot Widget -->
+    <div class="ai37-widget" id="ai37Widget">
+        <div class="ai37-toggle" id="ai37Toggle">
+            <div class="ai37-avatar">🤖</div>
+            <span class="ai37-label">AI 37</span>
+        </div>
+
+        <div class="ai37-chat-window" id="ai37ChatWindow">
+            <div class="ai37-header">
+                <div class="ai37-header-left">
+                    <div class="ai37-avatar-small">🤖</div>
+                    <div>
+                        <div class="ai37-title">AI 37</div>
+                        <div class="ai37-status ai37-status-online" id="ai37Status">
+                            <span class="status-dot"></span> Trực tuyến
+                        </div>
+                    </div>
+                </div>
+                <div class="ai37-header-actions">
+                    <button class="ai37-action-btn" id="clearChatBtn" title="Xóa chat">🗑️</button>
+                    <button class="ai37-action-btn" id="minimizeBtn" title="Thu nhỏ">➖</button>
+                </div>
+            </div>
+
+            <div class="ai37-messages" id="ai37Messages">
+                <div class="ai37-welcome">
+                    <div class="ai37-avatar-large">🤖</div>
+                    <h3>Xin chào! Tôi là AI 37 ⚡</h3>
+                    <p><strong>Trợ lý AI thông minh đa năng</strong></p>
+                    <div class="ai37-capabilities">
+                        <div class="capability">💡 Giải đáp mọi thắc mắc</div>
+                        <div class="capability">📝 Viết và chỉnh sửa văn bản</div>
+                        <div class="capability">💻 Hỗ trợ lập trình</div>
+                        <div class="capability">🧠 Phân tích và tư duy</div>
+                    </div>
+                    <p style="margin-top: 15px; font-size: 0.9em; opacity: 0.8;">
+                        Tôi sẽ nhớ ngữ cảnh cuộc trò chuyện và điều chỉnh cách trả lời phù hợp với từng câu hỏi của bạn!
+                    </p>
+                </div>
+            </div>
+
+            <div class="ai37-input-area">
+                <div class="ai37-input-wrapper">
+                    <textarea 
+                        id="ai37Input" 
+                        placeholder="Nhập câu hỏi của bạn..."
+                        rows="1"
+                    ></textarea>
+                    <div class="ai37-input-actions">
+                        <button class="ai37-stop-btn" id="stopBtn" style="display: none;">
+                            ⏹️ Dừng
+                        </button>
+                        <button class="ai37-send-btn" id="sendBtn">
+                            <span id="sendIcon">📤</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Table Details -->
+    <div id="tableModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTableName">Bảng dữ liệu</h2>
+                <span class="modal-close" onclick="closeTableModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="tableContent" class="table-content">
+                    <div class="loading">Đang tải dữ liệu...</div>
+                </div>
+                <div id="paginationControls" class="pagination-controls"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Stats -->
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📊 Thống kê Database</h2>
+                <span class="modal-close" onclick="closeStatsModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="statsContent" class="stats-content">
+                    <div class="loading">Đang tải thống kê...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
